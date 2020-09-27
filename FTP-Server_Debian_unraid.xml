@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>FTP-Server</Name>
+  <Repository>fithwum/ftp_server</Repository>
+  <Registry>https://hub.docker.com/r/fithwum/ftp_server/</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support></Support>
+  <Project>https://FTP-Server.com/</Project>
+  <Overview></Overview>
+  <Category></Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/fithwum/files-for-dockers/master/templates/FTP-Server_Debian_unraid.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/fithwum/files-for-dockers/master/icons/d20.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText>Buy me a coffee if you like.</DonateText>
+  <DonateLink>https://checkout.square.site/pay/340d93c602a042b8a223a2f7c184a6a2</DonateLink>
+  <Description></Description>
+  <Beta>False</Beta>
+  <Date>2020-09-27</Date>
+  <Changes>
+[font size=4][center]FTP-Server-Debian[/center][/font]
+[font size=3][b](2020-09-27)[/b][/font]
+&#x00a0;&#x00a0;- First test of the FTP server.
+  </Changes>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>21</HostPort>
+        <ContainerPort>21</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/FTP-Server</HostDir>
+      <ContainerDir>/ftp-server</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+	<Volume>
+      <HostDir>/mnt/user/</HostDir>
+      <ContainerDir>/ftp-server/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Host Port 1" Target="21" Default="21" Mode="tcp" Description="Container Port: 21" Type="Port" Display="always" Required="true" Mask="false">21</Config>
+  <Config Name="Data Path" Target="/ftp-server/data" Default="" Mode="rw" Description="Container Path: /ftp-server/data" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="AppData Config Path" Target="/ftp-server" Default="/mnt/user/appdata/FTP-Server" Mode="rw" Description="Container Path: /ftp-server" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/FTP-Server</Config>
+  <Config Name="Key 2" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
+  <Config Name="Key 3" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
+</Container>
