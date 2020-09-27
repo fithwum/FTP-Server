@@ -9,6 +9,7 @@ FTP_VERSION=1.16.1
 CHANGELOG=/ftp-server/run_${FTP_VERSION}.sh
 
 # Main install (debian).
+mkdir -p /ftp-server/data
 
 # Check for files in /ftp-server and download/create if needed.
 if [ -e "${CHANGELOG}" ]
