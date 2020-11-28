@@ -1,10 +1,10 @@
-FROM fithwum/debian-base:stretch
+FROM fithwum/debian-base:buster
 MAINTAINER fithwum
 
 # URL's for files
 ARG INSTALL_SCRIPT=https://raw.githubusercontent.com/fithwum/ftp-server/master/files/Install_Script.sh
 
-# 
+# Install & Update
 RUN apt-get -y update \
 	&& apt-get install -y  \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/*
