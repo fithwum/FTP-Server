@@ -24,7 +24,7 @@ ARG INSTALL_SCRIPT=https://raw.githubusercontent.com/fithwum/ftp-server/master/f
 
 # Install & Update
 RUN apt-get -y update \
-	&& apt-get install -y vsftpd db4o-utils db4o iproute2 \
+	&& apt-get install -y vsftpd iproute2 \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # folder creation.
