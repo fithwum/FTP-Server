@@ -22,16 +22,6 @@ if [ -e "${CHANGELOG}" ]
 			echo " "
 			echo "INFO ! Cleaning old files."
 			rm -fr /ftp-server /ftp-server/run_${FTP_VERSION}.sh
-			apt-get update
-			apt-get install vsftpd
-			systemctl enable vsftpd
-			ufw allow 20:21/tcp
-			ufw allow 30000:31000/tcp
-			ufw disable
-			sleep 1
-			ufw enable
-			cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
-			systemctl restart vsftpd
 fi
 
 sleep 1
