@@ -4,10 +4,6 @@ MAINTAINER fithwum
 ARG USER_ID=99
 ARG GROUP_ID=100
 
-RUN ADDUSER ftp
-RUN usermod -u ${USER_ID} ftp
-RUN groupmod -g ${GROUP_ID} ftp
-
 ENV FTP_USER **String**
 ENV FTP_PASS **Random**
 ENV PASV_ADDRESS **IPv4**
@@ -35,7 +31,7 @@ RUN apt-get -y update \
 RUN mkdir -p /ftp-server-temp /home/vsftpd \
 	&& chmod 777 -R /ftp-server-temp \
 	&& chown 99:100 -R /ftp-server-temp \
-	&& chown -R ftp:ftp /home/vsftpd/
+	&& chown -R 99:100 /home/vsftpd/
 ADD "${INSTALL_SCRIPT}" /ftp-server-temp
 RUN chmod +x /ftp-server-temp/Install_Script.sh
 
