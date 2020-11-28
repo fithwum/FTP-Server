@@ -1,6 +1,12 @@
 FROM fithwum/debian-base:buster
 MAINTAINER fithwum
 
+ARG USER_ID=99
+ARG GROUP_ID=100
+
+RUN usermod -u ${USER_ID} ftp
+RUN groupmod -g ${GROUP_ID} ftp
+
 ENV FTP_USER **String**
 ENV FTP_PASS **Random**
 ENV PASV_ADDRESS **IPv4**
@@ -25,11 +31,14 @@ RUN apt-get -y update \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # folder creation.
-RUN mkdir -p /ftp-server-temp \
+RUN mkdir -p /ftp-server-temp /home/vsftpd \
 	&& chmod 777 -R /ftp-server-temp \
-	&& chown 99:100 -R /ftp-server-temp
+	&& chown 99:100 -R /ftp-server-temp \
+	&& chown -R ftp:ftp /home/vsftpd/
 ADD "${INSTALL_SCRIPT}" /ftp-server-temp
 RUN chmod +x /ftp-server-temp/Install_Script.sh
+
+RUN 
 
 # directory where data is stored
 VOLUME /home/vsftpd
