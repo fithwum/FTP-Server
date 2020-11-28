@@ -22,20 +22,21 @@ if [ -e "${CHANGELOG}" ]
 			echo " "
 			echo "INFO ! Cleaning old files."
 			rm -fr /ftp-server /ftp-server/run_${FTP_VERSION}.sh
+			wget --no-cache https://raw.githubusercontent.com/fithwum/ftp-server/master/files/run.sh -O /usr/sbin/run_${FTP_VERSION}.sh
+			wget --no-cache https://raw.githubusercontent.com/fithwum/ftp-server/master/files/vsftpd.conf -O /etc/vsftpd/vsftpd.conf
+			wget --no-cache https://raw.githubusercontent.com/fithwum/ftp-server/master/files/vsftpd_virtual -O /etc/pam.d/vsftpd_virtual
 fi
 
 sleep 1
 
 # Set permissions.
-chown 99:100 -R /ftp-server
-chmod 777 -R /ftp-server
-chmod +x /ftp-server/run_${FTP_VERSION}.sh
+chmod +x /usr/sbin/run_${FTP_VERSION}.sh
 
 sleep 1
 
 # Run FTP server.
 echo " "
 echo "INFO ! Starting FTP server ${FTP_VERSION}"
-exec /ftp-server/run_${FTP_VERSION}.sh
+exec /usr/sbin/run_${FTP_VERSION}.sh
 
 exit
