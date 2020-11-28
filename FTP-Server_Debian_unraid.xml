@@ -8,7 +8,7 @@
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support></Support>
-  <Project>https://FTP-Server.com/</Project>
+  <Project>https://en.wikipedia.org/wiki/Vsftpd</Project>
   <Overview></Overview>
   <Category></Category>
   <WebUI/>
@@ -31,9 +31,24 @@
   <Networking>
     <Mode>host</Mode>
     <Publish>
-      <Port>
+	  <Port>
+        <HostPort>20</HostPort>
+        <ContainerPort>20</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+	  <Port>
         <HostPort>21</HostPort>
         <ContainerPort>21</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>21100</HostPort>
+        <ContainerPort>21100</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+	  <Port>
+        <HostPort>21110</HostPort>
+        <ContainerPort>21110</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
     </Publish>
@@ -41,12 +56,12 @@
   <Data>
     <Volume>
       <HostDir>/mnt/user/appdata/FTP-Server</HostDir>
-      <ContainerDir>/ftp-server</ContainerDir>
+      <ContainerDir>/var/log/vsftpd</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
 	<Volume>
       <HostDir>/mnt/user/</HostDir>
-      <ContainerDir>/ftp-server/data</ContainerDir>
+      <ContainerDir>/home/vsftpd</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
@@ -61,11 +76,79 @@
       <Name>PGID</Name>
       <Mode/>
     </Variable>
+	<Variable>
+      <Value>**String**</Value>
+      <Name>FTP_USER</Name>
+      <Mode/>
+    </Variable>
+	<Variable>
+      <Value>**Random**</Value>
+      <Name>FTP_PASS</Name>
+      <Mode/>
+    </Variable>
+	<Variable>
+      <Value>**IPv4**</Value>
+      <Name>PASV_ADDRESS</Name>
+      <Mode/>
+    </Variable>
+	<Variable>
+      <Value>NO</Value>
+      <Name>PASV_ADDR_RESOLVE</Name>
+      <Mode/>
+    </Variable>
+	<Variable>
+      <Value>YES</Value>
+      <Name>PASV_ENABLE</Name>
+      <Mode/>
+    </Variable>
+	<Variable>
+      <Value>NO</Value>
+      <Name>XFERLOG_STD_FORMAT</Name>
+      <Mode/>
+    </Variable>
+	<Variable>
+      <Value>**Boolean**</Value>
+      <Name>LOG_STDOUT</Name>
+      <Mode/>
+    </Variable>
+	<Variable>
+      <Value>0666</Value>
+      <Name>FILE_OPEN_MODE</Name>
+      <Mode/>
+    </Variable>
+	<Variable>
+      <Value>077</Value>
+      <Name>LOCAL_UMASK</Name>
+      <Mode/>
+    </Variable>
+	<Variable>
+      <Value>YES</Value>
+      <Name>REVERSE_LOOKUP_ENABLE</Name>
+      <Mode/>
+    </Variable>
+	<Variable>
+      <Value>NO</Value>
+      <Name>PASV_PROMISCUOUS</Name>
+      <Mode/>
+    </Variable>
+	<Variable>
+      <Value>NO</Value>
+      <Name>PORT_PROMISCUOUS</Name>
+      <Mode/>
+    </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Host Port 1" Target="21" Default="21" Mode="tcp" Description="Container Port: 21" Type="Port" Display="always" Required="true" Mask="false">21</Config>
-  <Config Name="Data Path" Target="/ftp-server/data" Default="" Mode="rw" Description="Container Path: /ftp-server/data" Type="Path" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="AppData Config Path" Target="/ftp-server" Default="/mnt/user/appdata/FTP-Server" Mode="rw" Description="Container Path: /ftp-server" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/FTP-Server</Config>
+  <Config Name="Host Port 1" Target="20" Default="20" Mode="tcp" Description="Container Port: 20" Type="Port" Display="always" Required="true" Mask="false">20</Config>
+  <Config Name="Host Port 2" Target="21" Default="21" Mode="tcp" Description="Container Port: 21" Type="Port" Display="always" Required="true" Mask="false">21</Config>
+  <Config Name="PASV MIN PORT" Target="21100" Default="21100" Mode="tcp" Description="Container Port: 21100" Type="Port" Display="always" Required="true" Mask="false">21100</Config>
+  <Config Name="PASV MAX PORT" Target="21110" Default="21110" Mode="tcp" Description="Container Port: 21110" Type="Port" Display="always" Required="true" Mask="false">21110</Config>
+  <Config Name="FTP user" Target="FTP_USER" Default="user" Mode="" Description="Create FTP user" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="FTP Password" Target="FTP_PASS" Default="Password1234" Mode="" Description="Create FTP password" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  
+  
+  
+  <Config Name="Data Path" Target="/home/vsftpd" Default="" Mode="rw" Description="Container Path: /home/vsftpd" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="AppData Config Path" Target="/var/log/vsftpd" Default="/mnt/user/appdata/FTP-Server" Mode="rw" Description="Container Path: /var/log/vsftpd" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/FTP-Server</Config>
   <Config Name="Key 2" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
   <Config Name="Key 3" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">100</Config>
 </Container>
