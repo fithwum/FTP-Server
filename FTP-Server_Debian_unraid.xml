@@ -142,8 +142,8 @@
   <Config Name="Host Port 2" Target="21" Default="21" Mode="tcp" Description="Container Port: 21" Type="Port" Display="always" Required="true" Mask="false">21</Config>
   <Config Name="PASV MIN PORT" Target="21100" Default="21100" Mode="tcp" Description="Container Port: 21100" Type="Port" Display="always" Required="true" Mask="false">21100</Config>
   <Config Name="PASV MAX PORT" Target="21110" Default="21110" Mode="tcp" Description="Container Port: 21110" Type="Port" Display="always" Required="true" Mask="false">21110</Config>
-  <Config Name="FTP user" Target="FTP_USER" Default="user" Mode="" Description="Create FTP user" Type="Variable" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="FTP Password" Target="FTP_PASS" Default="Password1234" Mode="" Description="Create FTP password" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="FTP user" Target="FTP_USER" Default="**String**" Mode="" Description="Create FTP user" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="FTP Password" Target="FTP_PASS" Default="**Random**" Mode="" Description="Create FTP password" Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Config Name="PASV address" Target="PASV_ADDRESS" Default="**IPv4**" Mode="" Description="Passive address" Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Config Name="PASV address resolve" Target="PASV_ADDR_RESOLVE" Default="NO" Mode="" Description="Passive address resolver" Type="Variable" Display="always" Required="true" Mask="false">NO</Config>
   <Config Name="PASV enable" Target="PASV_ENABLE" Default="YES" Mode="" Description="Passive enable" Type="Variable" Display="always" Required="true" Mask="false">YES</Config>
