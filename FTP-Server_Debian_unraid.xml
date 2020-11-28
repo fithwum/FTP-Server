@@ -10,10 +10,10 @@
   <Support></Support>
   <Project>https://en.wikipedia.org/wiki/Vsftpd</Project>
   <Overview></Overview>
-  <Category></Category>
+  <Category>Network:FTP</Category>
   <WebUI/>
   <TemplateURL>https://raw.githubusercontent.com/fithwum/files-for-dockers/master/templates/FTP-Server_Debian_unraid.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/fithwum/files-for-dockers/master/icons/d20.png</Icon>
+  <Icon></Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
