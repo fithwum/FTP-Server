@@ -4,6 +4,7 @@ MAINTAINER fithwum
 ARG USER_ID=99
 ARG GROUP_ID=100
 
+RUN ADDUSER ftp
 RUN usermod -u ${USER_ID} ftp
 RUN groupmod -g ${GROUP_ID} ftp
 
