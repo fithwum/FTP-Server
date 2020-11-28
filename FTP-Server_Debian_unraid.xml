@@ -2,7 +2,7 @@
 <Container version="2">
   <Name>FTP-Server</Name>
   <Repository>fithwum/ftp_server</Repository>
-  <Registry>https://hub.docker.com/r/fithwum/ftp_server/</Registry>
+  <Registry>https://hub.docker.com/r/fithwum/ftp-server/</Registry>
   <Network>host</Network>
   <MyIP/>
   <Shell>sh</Shell>
