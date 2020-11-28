@@ -144,9 +144,17 @@
   <Config Name="PASV MAX PORT" Target="21110" Default="21110" Mode="tcp" Description="Container Port: 21110" Type="Port" Display="always" Required="true" Mask="false">21110</Config>
   <Config Name="FTP user" Target="FTP_USER" Default="user" Mode="" Description="Create FTP user" Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Config Name="FTP Password" Target="FTP_PASS" Default="Password1234" Mode="" Description="Create FTP password" Type="Variable" Display="always" Required="true" Mask="false"></Config>
-  
-  
-  
+  <Config Name="PASV address" Target="PASV_ADDRESS" Default="**IPv4**" Mode="" Description="Passive address" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="PASV address resolve" Target="PASV_ADDR_RESOLVE" Default="NO" Mode="" Description="Passive address resolver" Type="Variable" Display="always" Required="true" Mask="false">NO</Config>
+  <Config Name="PASV enable" Target="PASV_ENABLE" Default="YES" Mode="" Description="Passive enable" Type="Variable" Display="always" Required="true" Mask="false">YES</Config>
+  <Config Name="XFERLOG STD FORMAT" Target="XFERLOG_STD_FORMAT" Default="NO" Mode="" Description="XFERLOG STD FORMAT" Type="Variable" Display="always" Required="true" Mask="false">NO</Config>
+  <Config Name="LOG STDOUT" Target="LOG_STDOUT" Default="**Boolean**" Mode="" Description="LOG STDOUT" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="File open mode" Target="FILE_OPEN_MODE" Default="0666" Mode="" Description="File open mode" Type="Variable" Display="always" Required="true" Mask="false">0666</Config>
+  <Config Name="Local umask" Target="LOCAL_UMASK" Default="077" Mode="" Description="Local umask" Type="Variable" Display="always" Required="true" Mask="false">077</Config>
+  <Config Name="Reverse lookup enable" Target="REVERSE_LOOKUP_ENABLE" Default="YES" Mode="" Description="Reverse lookup" Type="Variable" Display="always" Required="true" Mask="false">YES</Config>
+  <Config Name="PASV PROMISCUOUS " Target="PASV_PROMISCUOUS " Default="NO" Mode="" Description="PASV PROMISCUOUS " Type="Variable" Display="always" Required="true" Mask="false">NO</Config>
+  <Config Name="PORT PROMISCUOUS " Target="PORT_PROMISCUOUS " Default="NO" Mode="" Description="PORT PROMISCUOUS " Type="Variable" Display="always" Required="true" Mask="false">NO</Config>
+
   <Config Name="Data Path" Target="/home/vsftpd" Default="" Mode="rw" Description="Container Path: /home/vsftpd" Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="AppData Config Path" Target="/var/log/vsftpd" Default="/mnt/user/appdata/FTP-Server" Mode="rw" Description="Container Path: /var/log/vsftpd" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/FTP-Server</Config>
   <Config Name="Key 2" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced-hide" Required="false" Mask="false">99</Config>
