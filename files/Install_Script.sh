@@ -5,7 +5,7 @@
 # Variables.
 echo " "
 echo "INFO ! Checking for latest FTP server version."
-FTP_VERSION=1.16.1
+FTP_VERSION=0.0.1
 CHANGELOG=/ftp-server/run_${FTP_VERSION}.sh
 
 # Main install (debian).
@@ -22,6 +22,16 @@ if [ -e "${CHANGELOG}" ]
 			echo " "
 			echo "INFO ! Cleaning old files."
 			rm -fr /ftp-server /ftp-server/run_${FTP_VERSION}.sh
+			apt-get update
+			apt-get install vsftpd
+			systemctl enable vsftpd
+			ufw allow 20:21/tcp
+			ufw allow 30000:31000/tcp
+			ufw disable
+			sleep 1
+			ufw enable
+			cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
+			systemctl restart vsftpd
 fi
 
 sleep 1
@@ -36,6 +46,6 @@ sleep 1
 # Run FTP server.
 echo " "
 echo "INFO ! Starting FTP server ${FTP_VERSION}"
-exec /ftp-server/run_${FTP_VERSION}.sh --dataPath=/ftp-server
+exec /ftp-server/run_${FTP_VERSION}.sh
 
 exit
