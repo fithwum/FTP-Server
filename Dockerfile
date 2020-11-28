@@ -35,8 +35,6 @@ RUN mkdir -p /ftp-server-temp /home/vsftpd \
 ADD "${INSTALL_SCRIPT}" /ftp-server-temp
 RUN chmod +x /ftp-server-temp/Install_Script.sh
 
-RUN 
-
 # directory where data is stored
 VOLUME /home/vsftpd
 VOLUME /var/log/vsftpd
